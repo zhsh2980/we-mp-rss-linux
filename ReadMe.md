@@ -1,7 +1,10 @@
-# WeRSS - 微信公众号订阅助手
+<div align=center>
+<img src="static/logo.svg" alt="We-MP-RSS Logo" width="20%">
+<h1>WeRSS - 微信公众号订阅助手</h1>
 
 [![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-green.svg)]()
+</div>
 
 一个用于订阅和管理微信公众号内容的工具，提供RSS订阅功能。
 
@@ -13,19 +16,16 @@
 - 定时自动更新内容
 
 ## 界面截图
-
 - 登录界面  
-  ![登录界面](docs/登录.png)
-
+<img src="docs/登录.png" alt="登录" width="80%"/><br/>
 - 主界面  
-  ![主界面](docs/主界面.png)
+<img src="docs/主界面.png" alt="主界面" width="80%"/><br/>
 
 - 添加订阅  
-  ![添加订阅](docs/添加订阅.png)
+<img src="docs/添加订阅.png" alt="添加订阅" width="80%"/><br/>
 
 - 扫码授权  
-  ![扫码授权](docs/扫码授权.png)
-
+<img src="docs/扫码授权.png" alt="扫码授权" width="80%"/><br/>
 ## 系统架构
 
 项目采用前后端分离架构：
@@ -95,6 +95,15 @@ python job.py
 
 API服务启动后，访问以下地址查看文档：
 - Swagger UI: http://localhost:8001/api/docs
+
+## ⚙️ 环境变量
+
+| 变量名                   | 说明                                                                          | 默认值                      |
+| ------------------------ | ---------------------------------------------------------------------------- | --------------------------- |
+| `DB`                     | **必填** 数据库地址 例如: mysql+pymysql://<username>:<password>@<host>/we-rss  | sqlite:///db.db             |
+| `INTERVAL`               | 抓取间隔时间，单位秒                                                           | `300`                       |          
+| `SECRET_KEY`             | JWT授权加密KEY                                                                | -                           |
+
 
 ## 快速运行
 ### Docker Sqlite
@@ -174,10 +183,11 @@ npm run build
 
 ❤️ 赞助
 如果觉得 We-MP-RSS 对你有帮助，欢迎给我来一杯啤酒！
-![微信](docs/赞赏码.jpg)
+<img src="docs/赞赏码.jpg" width=80/>
 
 
 
 ## 许可证
 
 MIT License
+

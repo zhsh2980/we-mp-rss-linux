@@ -8,7 +8,7 @@ db: ${DB:-sqlite:///db.db}
 notice:
   dingding: "${DINGDING_WEBHOOK:-''}"
 
-secret: ${SECRET:- 'we-mp-rss'}
+secret: ${SECRET_KEY:- 'we-mp-rss'}
 token: 
 user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.39...
 

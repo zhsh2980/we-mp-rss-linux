@@ -66,8 +66,5 @@ cfg=Config()
 config = cfg.get_config()
 DEBUG=cfg.get("debug",False)
 APP_NAME=cfg.get("app_name","we-mp-rss")
-
-
-VERSION='1.3.2'
-
+from ver import VERSION
 print(VERSION)
