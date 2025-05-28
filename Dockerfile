@@ -16,8 +16,9 @@ FROM base
 # 安装系统依赖
 
 WORKDIR /app
+RUN cd ./web_ui
 
-
+RUN chmod +x build.sh& ./build.sh
 RUN export PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
 # 复制Python依赖文件
 COPY requirements.txt .
