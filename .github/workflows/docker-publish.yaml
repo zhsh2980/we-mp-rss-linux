@@ -21,10 +21,9 @@ jobs:
           node-version: '20.18.3' # 替换为你的项目所需的 Node.js 版本
       - name: Install dependencies
         run: |
-            cd ./web_ui
-            yarn install
-      - name: Build project
-        run: yarn build
+          cd ./web_ui
+          chmod +x build.sh
+          ./build.sh
       - name: Copy to Static
         run: cp -r dist/* ../static
 
