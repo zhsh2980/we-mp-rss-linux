@@ -12,7 +12,6 @@ def testWeb():
     urls="""
     https://mp.weixin.qq.com/s/puc5q9xFmfMSy3OyqeYxZA
     """.strip().split("\n")
-
     Web.FixArticle(urls=urls)
     pass
 
