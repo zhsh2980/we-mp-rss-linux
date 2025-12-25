@@ -164,12 +164,9 @@ if __name__=="__main__":
     # testMd2Doc()
     # testLogin()
 
-    testJob()
-    # test_send_wx_code()
+    # testJob()
+    test_send_wx_code()
     # testCheckAuth()
     # testToken()  # 注释掉避免线程冲突
     # testMarkDown()
-    while True:
-        cmd=input("输入exit退出")
-        if cmd.strip().lower()=="exit":
-            break
+    cmd=input("输入exit退出")
