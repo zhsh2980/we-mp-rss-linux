@@ -10,3 +10,4 @@ key/
 *.der
 .env
 .env.*
+!.env.example
