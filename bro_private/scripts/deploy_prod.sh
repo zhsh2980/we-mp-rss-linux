@@ -84,6 +84,9 @@ fi
 
 # 构建 SSH 参数
 ssh_args=()
+if [[ -n "${PROD_SSH_KEY}" && -f "${PROD_SSH_KEY}" ]]; then
+  ssh_args+=(-i "${PROD_SSH_KEY}")
+fi
 if [[ -n "${PROD_SSH_PORT}" ]]; then
   ssh_args+=(-p "${PROD_SSH_PORT}")
 fi
