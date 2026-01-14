@@ -75,7 +75,8 @@ def CallBackNotice(data=None,ext_data=None):
         url=rss_domain+str(img_path)
         # 使用 WebP 压缩，避免钉钉 20KB 消息体限制
         url=compress_qrcode_to_webp("./static/wx_qrcode.png")
-        text=f"- 服务名：{cfg.get('server.name','')}\n"
+        text=f"**[订阅消息]**\n\n"  # 添加钉钉关键词
+        text+=f"- 服务名：{cfg.get('server.name','')}\n"
         text+=f"- 发送时间： {time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))}"
         if WX_API.GetHasCode():
             text+=f"![描述]({url})"
