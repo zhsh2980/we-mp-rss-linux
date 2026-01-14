@@ -14,6 +14,7 @@ fi
 
 PROD_SSH_HOST="${PROD_SSH_HOST:-ubuntu@154.8.205.159}"
 PROD_SSH_PORT="${PROD_SSH_PORT:-22}"
+PROD_SSH_KEY="${PROD_SSH_KEY:-}"
 PROD_APP_DIR="${PROD_APP_DIR:-/srv/we-mp-rss/app}"
 PROD_SERVICE="${PROD_SERVICE:-we-mp-rss}"
 DEPLOY_BRANCH="${DEPLOY_BRANCH:-deploy}"
@@ -40,6 +41,9 @@ git push origin "${DEPLOY_BRANCH}"
 echo "==> Deploying to ${PROD_SSH_HOST} ..."
 
 ssh_args=()
+if [[ -n "${PROD_SSH_KEY}" && -f "${PROD_SSH_KEY}" ]]; then
+  ssh_args+=(-i "${PROD_SSH_KEY}")
+fi
 if [[ -n "${PROD_SSH_PORT}" ]]; then
   ssh_args+=(-p "${PROD_SSH_PORT}")
 fi
