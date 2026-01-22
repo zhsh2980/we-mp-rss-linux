@@ -197,58 +197,7 @@ sudo systemctl enable we-mp-rss
 sudo systemctl start we-mp-rss
 ```
 
-## 7) 工作流区分：代码 vs 配置
-
-根据目录结构设计，修改分为两类，流程不同：
-
-### 📝 代码修改（通过 Git）
-
-**适用场景**：修改 Python 代码、前端页面、脚本等
-
-**流程**：
-```bash
-# 本地修改代码
-git add .
-git commit -m "feat: 添加新功能"
-
-# 推送到 dev 分支
-git push origin dev
-
-# 准备发布
-git switch deploy
-git merge --ff-only dev
-git push origin deploy
-
-# 部署到服务器
-./bro_private/scripts/deploy_prod.sh
-```
-
-### ⚙️ 配置修改（直接在服务器）
-
-**适用场景**：修改 `config.yaml`（钉钉 Webhook、采集设置等）
-
-**流程**：
-```bash
-# SSH 到服务器
-ssh -i bro_private/key/你的密钥.pem ubuntu@服务器IP
-
-# 直接修改配置文件
-vim /srv/we-mp-rss/config.yaml
-
-# 重启服务生效
-sudo systemctl restart we-mp-rss
-```
-
-> [!IMPORTANT]
-> **为什么配置不走 Git？**
-> 
-> - `config.yaml` 通过符号链接指向 `/srv/we-mp-rss/config.yaml`（Git 仓库外）
-> - 配置文件包含敏感信息（Webhook、密钥等），不应提交到 Git
-> - `deploy_prod.sh` 只更新代码，不会覆盖配置文件
-
----
-
-## 8) 更新部署
+## 7) 更新部署
 
 使用脚本快速部署更新：
 
@@ -272,7 +221,7 @@ Options:
   --help, -h       显示帮助信息
 ```
 
-## 9) 回滚
+## 8) 回滚
 
 如果部署出现问题，可以快速回滚到上一个版本：
 
@@ -292,7 +241,7 @@ ssh -i bro_private/key/你的密钥.pem ubuntu@服务器IP "cd /srv/we-mp-rss/ap
 ssh -i bro_private/key/你的密钥.pem ubuntu@服务器IP "cd /srv/we-mp-rss/app && git reset --hard HEAD~1 && sudo systemctl restart we-mp-rss"
 ```
 
-## 10) 常用运维命令
+## 9) 常用运维命令
 
 ```bash
 # 查看服务状态
@@ -308,7 +257,7 @@ ssh -i key.pem ubuntu@服务器 "sudo systemctl restart we-mp-rss"
 ssh -i key.pem ubuntu@服务器 "sudo systemctl stop we-mp-rss"
 ```
 
-## 11) 国内镜像配置（可选）
+## 10) 国内镜像配置（可选）
 
 源码部署会从外网下载依赖，如果下载很慢/失败，可以配置国内镜像：
 
